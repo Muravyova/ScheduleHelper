@@ -1,0 +1,60 @@
+﻿@model ScheduleHelper.Models.DbModels.Payment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pay)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Count)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Refund)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Refund)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefundPay)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefundPay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleItem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleItem.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

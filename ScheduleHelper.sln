@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleHelper", "Test2App\ScheduleHelper.csproj", "{3ACFB4AB-66E3-48BA-82FB-EC34A1C1339B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ACFB4AB-66E3-48BA-82FB-EC34A1C1339B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACFB4AB-66E3-48BA-82FB-EC34A1C1339B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACFB4AB-66E3-48BA-82FB-EC34A1C1339B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACFB4AB-66E3-48BA-82FB-EC34A1C1339B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B27001D2-F33E-407E-9A1C-CF125E29CE41}
+	EndGlobalSection
+EndGlobal
