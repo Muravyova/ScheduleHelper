@@ -1,28 +1,51 @@
 ﻿@model IEnumerable<ScheduleHelper.Models.DbModels.Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Студенты";
 }
 
-<h2>Index</h2>
+<h2>Студенты</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div>
+    
+    <p>
+    </p>
+    
+
+    <!--<p>
+        <input type="button" value="Добавить" onclick="location.href='<%: Url.Action("Create", "Students" ) %>'" />
+    </p>-->
+
+
+        @using (Html.BeginForm())
+        {
+            <p>
+                <a asp-action="Create" style="float:right" class="btn btn-default">Добавить</a>
+               
+                @Html.TextBox("SearchString")
+                <input type="submit" value=" " />
+                <br/>
+                <br/>
+                <a asp-route="" style="float:right" class="btn btn-default">Посещаемость</a>
+
+        </p>
+    }
+</div>
+
 <table class="table">
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    Имя
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                    Телефон
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    Email
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Comment)
+                    Комментарий
                 </th>
             <th></th>
         </tr>
@@ -43,10 +66,12 @@
                 @Html.DisplayFor(modelItem => item.Comment)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                <a asp-action="Details" asp-route-id="@item.Id">Информация</a>
+                <!-- 
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                -->
+                    </td>
         </tr>
 }
     </tbody>
