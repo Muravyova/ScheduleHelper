@@ -1,89 +1,72 @@
-﻿@model IEnumerable<ScheduleHelper.Models.DbModels.ScheduleItem>
+﻿@model ScheduleHelper.Models.ViewModels.ScheduleViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Расписание";
+    DateTime? filter = null;
 }
-
-<h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <br/>
+    <a asp-action="Create">Добавить</a>
+
+    <div class="form-group">
+        <label class="control-label">Выберите дату для фильтрации:</label>
+        <input asp-for="@filter" type="date" class="form-control" />
+        <a asp-action="Index" asp-route-start="@filter">Фильтровать</a>
+    </div>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DayOfWeek)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EndDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Duration)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Type)
-                </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Language)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Place)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Teacher)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DayOfWeek)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Language.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Place.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teacher.Email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+
+@foreach(var day in Model.Days)
+{
+    <h2>@Html.DisplayFor(model => day.DayName)</h2>
+    @if (day.Times.Count == 0)
+    {
+        <h3>Нет занятий</h3>
+    }
+    else
+    {
+        @foreach (var time in day.Times)
+        {
+            <h2>@Html.DisplayFor(modelItem => time.StartTime)</h2>
+
+            <table class="table">
+                <tbody>
+                    @foreach (var scheduleItem in time.Items)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => scheduleItem.Title)
+                            </td>
+                            <td>
+                                @if(scheduleItem.Duration == 60)
+                                {
+                                    @Html.Display("1 час")
+                                }
+                                else
+                                {
+                                    @Html.Display("1,5 часа")
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => scheduleItem.Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => scheduleItem.Language.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => scheduleItem.Place.Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => scheduleItem.Teacher.Name)
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@scheduleItem.Id" asp-route-cw="@Model.CurrentWeek">Детали</a>                       
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
 }
-    </tbody>
-</table>

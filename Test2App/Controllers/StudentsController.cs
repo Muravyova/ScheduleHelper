@@ -20,7 +20,8 @@ namespace ScheduleHelper.Controllers
         // GET: Students
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Students.ToListAsync());
+            var students = await _context.Students.Include(s => s.Payments).ToListAsync();
+            return View(students);
         }
 
         // GET: Students/Details/5

@@ -1,12 +1,10 @@
 ﻿@model ScheduleHelper.Models.DbModels.Payment
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Создание оплаты";
 }
 
-<h2>Create</h2>
-
-<h4>Payment</h4>
+<h4>Оплата</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -27,7 +25,7 @@
                 <input asp-for="Count" class="form-control" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Refund" /> @Html.DisplayNameFor(model => model.Refund)
@@ -38,7 +36,7 @@
                 <label asp-for="RefundPay" class="control-label"></label>
                 <input asp-for="RefundPay" class="form-control" />
                 <span asp-validation-for="RefundPay" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="ScheduleItemId" class="control-label"></label>
                 <select asp-for="ScheduleItemId" class ="form-control" asp-items="ViewBag.ScheduleItemId"></select>

@@ -1,13 +1,23 @@
 ﻿@model ScheduleHelper.Models.DbModels.Teacher
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Детали";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Teacher</h4>
+    <h4>Преподаватель</h4>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a>
+        <br />
+        @if (Model.ScheduleItems.Count != 0)
+        {
+            <h6>Нельзя удалить преподавателя, пока имеются занятия связанные с ним</h6>
+        }
+        else
+        {
+            <a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
+        }      
+    </div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -36,7 +46,35 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Язык
+            </th>
+            <th>
+                Уровень
+            </th>
+            <th>
+                Вид занятий
+            </th> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ScheduleItems)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

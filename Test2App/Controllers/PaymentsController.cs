@@ -45,11 +45,25 @@ namespace ScheduleHelper.Controllers
             return View(payment);
         }
 
-        // GET: Payments/Create
-        public IActionResult Create()
+        // GET: Payments/Create/id
+        public async Task<IActionResult> Create(Guid? s)
         {
-            ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "StartTime");
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
+            if (s == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students.SingleOrDefaultAsync(it => it.Id == s);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "Title");
+            ViewData["StudentName"] = student.Name;
+            ViewData["StudentId"] = student.Id;
+
             return View();
         }
 
@@ -58,7 +72,7 @@ namespace ScheduleHelper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Pay,Count,Refund,RefundPay,ScheduleItemId,StudentId")] Payment payment)
+        public async Task<IActionResult> Create([Bind("Id,Date,Pay,Count,ScheduleItemId,StudentId")] Payment payment)
         {
             if (ModelState.IsValid)
             {

@@ -1,29 +1,28 @@
 ﻿@model IEnumerable<ScheduleHelper.Models.DbModels.Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Студенты";
 }
 
-<h2>Index</h2>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <br/>
+    <a asp-action="Create">Добавить</a>
 </p>
 <table class="table">
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    ФИО
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                    Телефон
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    E-mail
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Comment)
-                </th>
+            <th>
+                Кол-во платежей
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -40,12 +39,10 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Comment)
+                @Html.DisplayFor(modelItem => item.Payments.Count)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a>
             </td>
         </tr>
 }

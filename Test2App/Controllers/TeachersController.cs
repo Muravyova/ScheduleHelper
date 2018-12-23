@@ -32,7 +32,10 @@ namespace ScheduleHelper.Controllers
             }
 
             var teacher = await _context.Teachers
+                .Include(inc => inc.ScheduleItems)
+                .ThenInclude(e => e.Language)
                 .SingleOrDefaultAsync(m => m.Id == id);
+
             if (teacher == null)
             {
                 return NotFound();
@@ -73,6 +76,7 @@ namespace ScheduleHelper.Controllers
             }
 
             var teacher = await _context.Teachers.SingleOrDefaultAsync(m => m.Id == id);
+
             if (teacher == null)
             {
                 return NotFound();
@@ -87,6 +91,7 @@ namespace ScheduleHelper.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,PhoneNumber,Email,Comment")] Teacher teacher)
         {
+          
             if (id != teacher.Id)
             {
                 return NotFound();
