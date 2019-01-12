@@ -1,89 +1,157 @@
 ﻿@model IEnumerable<ScheduleHelper.Models.DbModels.ScheduleItem>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Расписание";
 }
 
-<h2>Index</h2>
+<h2>Расписание</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="float:right" class="btn btn-default">Добавить</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DayOfWeek)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EndDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Duration)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Type)
-                </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Language)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Place)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Teacher)
-            </th>
-            <th></th>
+            <th>Время</th>
+            <th>Пн</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+            <th>Вс</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
+            <td id="time_td">
+                @for (int i = 0; i < 16; i++)
+                {
+                <p id="time">@(7+i):00</p>
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
+                @foreach (var item in Model)
+                {
+                    if (item.DayOfWeek == 0)
+                    {
+                    <div id="parent" class="shedule-obj" style="height: {@item.Duration}px;">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                        <p class="hidden">@Html.DisplayFor(modelItem => item.Type)</p>
+                    </div>
+                    }
+                }
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DayOfWeek)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Language.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Place.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teacher.Email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+            <td>@foreach (var item in Model)
+            {
+                if (item.DayOfWeek == 1)
+                {
+                    <div id="parent" class="shedule-obj">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                    </div>
+                }
+            }</td>
+            <td>@foreach (var item in Model)
+            {
+                if (item.DayOfWeek == 2)
+                {
+                    <div id="parent" class="shedule-obj">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                    </div>
+                }
+            }</td>
+            <td>@foreach (var item in Model)
+            {
+                if (item.DayOfWeek == 3)
+                {
+                    <div id="parent" class="shedule-obj">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                    </div>
+                }
+            }</td>
+            <td>@foreach (var item in Model)
+            {
+                if (item.DayOfWeek == 4)
+                {
+                    <div id="parent" class="shedule-obj">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                    </div>
+                }
+            }</td>
+            <td>@foreach (var item in Model)
+            {
+                if (item.DayOfWeek == 5)
+                {
+                    <div id="parent" class="shedule-obj">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                    </div>
+                }
+            }</td>
+            <td>@foreach (var item in Model)
+            {
+                if (item.DayOfWeek == 6)
+                {
+                    <div id="parent" class="shedule-obj">
+
+                        <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
+                        </a>
+                        <div class="place">
+                            <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
+                            <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
+                        </div>
+                    </div>
+                }
+            }</td>
         </tr>
-}
     </tbody>
 </table>
