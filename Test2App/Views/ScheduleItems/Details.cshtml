@@ -4,75 +4,98 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Title)</h2>
+
 
 <div>
-    <h4>ScheduleItem</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            Начало занятий:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(modelItem => Model.StartDate.Day).@Html.DisplayFor(modelItem => Model.StartDate.Month).@Html.DisplayFor(modelItem => Model.StartDate.Year)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
+            Конец занятий:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.StartDate)
+            @Html.DisplayFor(modelItem => Model.EndDate.Day).@Html.DisplayFor(modelItem => Model.EndDate.Month).@Html.DisplayFor(modelItem => Model.EndDate.Year)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.DayOfWeek)
+            День недели:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DayOfWeek)
+            @{
+                switch (Model.DayOfWeek)
+                {
+                    case 0:
+                        <text>Пн</text>
+                        break;
+                    case 1:
+                        <text>Вт</text>
+                        break;
+                    case 2:
+                        <text>Ср</text>
+                        break;
+                    case 3:
+                        <text>Чт</text>
+                        break;
+                    case 4:
+                        <text>Пт</text>
+                        break;
+                    case 5:
+                        <text>Сб</text>
+                        break;
+                    case 6:
+                        <text>Вс</text>
+                        break;
+                    default:
+                        <text>Ошибка</text>
+                        break;
+                }
+            }
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
+            Преподаватель:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.StartTime)
+            @Html.DisplayFor(model => model.Teacher.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Duration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Duration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
+            Тип:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Type)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Language)
+            Время:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+        <dt>
+            Длительность:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt>
+            Язык:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Language.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Place)
+            Место проведения:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Place.Id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Teacher)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Teacher.Email)
+            @Html.DisplayFor(model => model.Place.Type)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
 </div>
