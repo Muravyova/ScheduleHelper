@@ -35,8 +35,11 @@
                 {
                     if (item.DayOfWeek == 0)
                     {
-                    <div id="parent" class="shedule-obj" style="height: {@item.Duration}px;">
 
+                    <div id="parent" class="shedule-obj" style="height: {@item.Duration}px;">
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
@@ -45,7 +48,6 @@
                             <text id="ch1">@Html.DisplayFor(modelItem => item.Teacher.Name)</text>
                             <text id="ch2">@Html.DisplayFor(modelItem => item.Place.Type)</text>
                         </div>
-                        <p class="hidden">@Html.DisplayFor(modelItem => item.Type)</p>
                     </div>
                     }
                 }
@@ -55,7 +57,9 @@
                 if (item.DayOfWeek == 1)
                 {
                     <div id="parent" class="shedule-obj">
-
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
@@ -72,7 +76,9 @@
                 if (item.DayOfWeek == 2)
                 {
                     <div id="parent" class="shedule-obj">
-
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
@@ -89,7 +95,9 @@
                 if (item.DayOfWeek == 3)
                 {
                     <div id="parent" class="shedule-obj">
-
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
@@ -106,7 +114,9 @@
                 if (item.DayOfWeek == 4)
                 {
                     <div id="parent" class="shedule-obj">
-
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
@@ -123,7 +133,9 @@
                 if (item.DayOfWeek == 5)
                 {
                     <div id="parent" class="shedule-obj">
-
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
@@ -140,7 +152,9 @@
                 if (item.DayOfWeek == 6)
                 {
                     <div id="parent" class="shedule-obj">
-
+                        <p class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</p>
+                        <p class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</p>
+                        <p class="hidden type">@Html.DisplayFor(modelItem => item.Type)</p>
                         <p class="time">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</p>
                         <a asp-action="Details" asp-route-id="@item.Id">
                             <p class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</p>
