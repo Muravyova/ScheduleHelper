@@ -34,6 +34,11 @@
     }
 }
 
+#navbar {
+    background-color: #968F89;
+    color: white;
+}
+
 .title{
     font-size: 15px;
     font-weight: 600;
@@ -60,6 +65,16 @@
 .yellow {
     background-color: #FEF3BB;
     border: 2px solid #FCE35F;
+}
+
+.violet {
+    background: #DDBBFE;
+    border: 2px solid #9A5FFC;
+}
+
+.red {
+    background: #FEBBBB;
+    border: 2px solid #DA5151;
 }
 
 .shedule-obj {
@@ -129,3 +144,25 @@ a > .name {
 td {
     width: 14%
 }
+
+.teacher {
+    background-color: white;
+}
+
+    .teacher > .name {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .teacher > div {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 18px;
+        text-align: center;
+    }

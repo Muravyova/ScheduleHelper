@@ -24,6 +24,13 @@ shobj.forEach(function (sho) {
         case 'онлайн':
             sho.classList.add("green");
             break;
+        case 'открытое':
+            sho.classList.add("violet");
+            break;
+        case 'препод':
+        case 'преподавательское':
+            sho.classList.add("red");
+            break;
         case 'индивидуальное':
             sho.classList.add("blue");
             break;
@@ -31,7 +38,7 @@ shobj.forEach(function (sho) {
             alert(type.innerHTML);
             break;
     }
-    sho.style.top = 60 * (int-7) + "px";
+    sho.style.top = 60 * (int - 7) + "px";
     sho.style.height = int1 + "px";
 });
 //shobj.addEventListener("click", () => {
