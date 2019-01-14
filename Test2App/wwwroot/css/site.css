@@ -3,6 +3,10 @@
     padding-bottom: 20px;
 }
 
+a {
+    color:black;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -35,7 +39,7 @@
 }
 
 .navbar {
-    background-color: #968F89;
+    background-color: #c29a6e;
     color: white;
 }
 
@@ -145,12 +149,20 @@ td {
     width: 14%;
 }
 
+.teacher_border {
+
+}
+
 .teacher {
     background-color: white;
+    display:inline-block;
+    width: 320px;
+    overflow:auto;
+    border:1px black solid;
 }
 
     .teacher > .name {
-        font-family: Roboto;
+        /*font-family: Roboto;*/
         font-style: normal;
         font-weight: bold;
         line-height: normal;
@@ -159,9 +171,9 @@ td {
     }
 
     .teacher > div {
-        font-family: Roboto;
+        /*font-family: Roboto;*/
         font-style: normal;
-        font-weight: bold;
+        /*font-weight: bold;*/
         line-height: normal;
         font-size: 18px;
         text-align: center;

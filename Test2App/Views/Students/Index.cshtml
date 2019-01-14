@@ -20,6 +20,7 @@
         @using (Html.BeginForm())
         {
             <p>
+                <br />
                 <a asp-action="Create" style="float:right" class="btn btn-default">Добавить</a>
                
                 @Html.TextBox("SearchString")
@@ -65,13 +66,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Comment)
             </td>
-            <!--<td>
+            <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Информация</a>
-                 
+                 <!--
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                
-                </td>-->
+                 -->
+               </td>
         </tr>
 }
     </tbody>

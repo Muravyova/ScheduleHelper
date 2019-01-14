@@ -4,39 +4,32 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div>
+    <br />
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Редактировать</a>
+</div>
+
+<hr />
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 
 <div>
-    <h4>Teacher</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <dt>Контакты:</dt>
         <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd>
+            Телефон:
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
         <dd>
+            Email:
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Comment)
+            Комментарий
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Comment)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
