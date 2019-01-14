@@ -34,7 +34,7 @@
     }
 }
 
-#navbar {
+.navbar {
     background-color: #968F89;
     color: white;
 }
@@ -142,7 +142,7 @@ a > .name {
 }
 
 td {
-    width: 14%
+    width: 14%;
 }
 
 .teacher {
