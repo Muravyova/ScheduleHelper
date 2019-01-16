@@ -4,22 +4,50 @@
     ViewData["Title"] = "Студенты";
 }
 
-<p>
-    <br/>
-    <a asp-action="Create">Добавить</a>
-</p>
+<h2>Студенты</h2>
+
+<div>
+
+    <p>
+    </p>
+
+
+    <!--<p>
+        <input type="button" value="Добавить" onclick="location.href='<%: Url.Action("Create", "Students" ) %>'" />
+    </p>-->
+
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            <br />
+            <a asp-action="Create" style="float:right" class="btn btn-default">Добавить</a>
+
+            @Html.TextBox("SearchString")
+            <input type="submit" value=" " />
+            <br />
+            <br />
+            <a asp-route="" style="float:right" class="btn btn-default">Посещаемость</a>
+
+        </p>
+    }
+</div>
+
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    ФИО
-                </th>
-                <th>
-                    Телефон
-                </th>
-                <th>
-                    E-mail
-                </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Телефон
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Комментарий
+            </th>
             <th>
                 Кол-во платежей
             </th>
@@ -27,7 +55,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -39,12 +68,19 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Payments.Count)
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Детали</a>
+                <!--
+           <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+           <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        -->
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

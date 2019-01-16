@@ -26,15 +26,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ScheduleHelper</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/logo_white.png" width="50" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Histories" asp-action="Index">История выплат</a></li>
+                    <li><a asp-area="" asp-controller="Histories" asp-action="Index">Уведомления</a></li>
                     <li><a asp-area="" asp-controller="Languages" asp-action="Index">Языки</a></li>
-                    <li><a asp-area="" asp-controller="Places" asp-action="Index">Аудитории</a></li>
+                    <li><a asp-area="" asp-controller="Places" asp-action="Index">Места проведения</a></li>
                     <li><a asp-area="" asp-controller="ScheduleItems" asp-action="Index">Расписание</a></li>
-                    <li><a asp-area="" asp-controller="StudentScheduleItems" asp-action="Index">StudentScheduleItem</a></li>
+                    <li><a asp-area="" asp-controller="StudentScheduleItems" asp-action="Index">Записать студента</a></li>
                     <li><a asp-area="" asp-controller="Students" asp-action="Index">Студенты</a></li>
                     <li><a asp-area="" asp-controller="Teachers" asp-action="Index">Преподаватели</a></li>
                 </ul>

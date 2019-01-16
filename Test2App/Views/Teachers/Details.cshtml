@@ -7,7 +7,7 @@
 <div>
     <h4>Преподаватель</h4>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Редактировать</a>
         <br />
         @if (Model.ScheduleItems.Count != 0)
         {
@@ -15,31 +15,22 @@
         }
         else
         {
-            <a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
-        }      
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-default">Удалить</a>
+        }
     </div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <dt>Контакты:</dt>
         <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd>
+            Телефон:
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
         <dd>
+            Email:
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Comment)
+            Комментарий
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Comment)

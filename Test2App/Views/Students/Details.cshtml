@@ -1,30 +1,27 @@
 ﻿@model ScheduleHelper.Models.DbModels.Student
 
 @{
-    ViewData["Title"] = "Детали";
+    ViewData["Title"] = "Details";
 }
 
 <div>
-    <h4>@Model.Name</h4>
+    <br />
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default" style="margin-top:10px">Редактировать</a>
+</div>
 
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-        <br/>
-        <a asp-controller="Payments" asp-action="Create" asp-route-s="@Model.Id">Оплатить</a>
-    </div>
+<hr />
 
-    <hr />
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<div>
     <dl class="dl-horizontal">
-        <dt>
-            Телефон
-        </dt>
+        <dt>Контакты:</dt>
         <dd>
+            Телефон:
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
-        <dt>
-            E-mail
-        </dt>
         <dd>
+            Email:
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
