@@ -7,9 +7,20 @@
     <br />
     <h2>Преподаватели</h2>
     <a asp-action="Create" style="float:left" class="btn btn-default">Добавить</a>
+    <a href="javascript:PopUpShow()" class="btn btn-default">Открыть всплывающее окно</a>
     <br />
     <br />
 </p>
+
+<div class="b-popup" id="popup1">
+    <div class="b-popup-content">
+        Тут должна появиться возможность добавить преподавателя
+        <br />
+        <a href="javascript:PopUpHide()">Hide popup</a>
+    </div>
+</div>
+
+@*<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>*@
 
 <ul class="cards">
     @foreach (var item in Model)
