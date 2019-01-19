@@ -1,23 +1,4 @@
 ﻿/*Для списка преподавателей*/
-img {
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-.btn {
-    background-color: white;
-    border: 1px solid #cccccc;
-    color: #696969;
-    padding: 0.5rem;
-    text-transform: lowercase;
-}
-
-.btn--block {
-    display: block;
-    width: 100%;
-}
-
 .cards {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -51,6 +32,7 @@ img {
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    min-width: 20rem;
 }
 
     .card:hover .card__image {
@@ -75,6 +57,12 @@ img {
     flex-direction: column;
     padding: 1rem;
     max-width: 20rem;
+    overflow: hidden;
+}
+
+.card__content:hover{
+    text-decoration:none;
+    color: black;
 }
 
 .card__btn--dlt {
