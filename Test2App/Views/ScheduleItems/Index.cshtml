@@ -37,7 +37,31 @@
                     <p id="time">@(7 + i):00</p>
                 }
             </td>
-            <td></td>
+                @foreach (var day in Model.Days)
+                {
+                 <td>
+                     @foreach (var time in day.Times)
+                     {
+                         @foreach (var item in time.Items)
+                         {
+                             <div class="shedule-obj">
+                                 <div class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</div>
+                                 <div class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</div>
+                                 <div class="hidden type">@Html.DisplayFor(modelItem => item.Type)</div>
+                                 <div class="timeDur">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</div>
+                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-cw="@Model.CurrentWeek">
+                                     <div class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</div>
+                                 </a>
+                                 <div class="place">
+                                     <div style="display: inline-block; float: left;">@Html.DisplayFor(modelItem => item.Teacher.Name)</div>
+                                     <div style="display: inline-block; float: right;">@Html.DisplayFor(modelItem => item.Place.Type)</div>
+                                 </div>
+                             </div>
+                         }
+
+                     }
+                 </td>   
+                }
         </tr>
     </tbody>
 </table>

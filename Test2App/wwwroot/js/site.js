@@ -19,6 +19,7 @@ shobj.forEach(function (sho) {
     var int1 = parseInt(dur.innerHTML, 10);
     switch (type.innerHTML) {
         case 'группа':
+        case 'Групповое занятие':
             sho.classList.add("yellow");
             break;
         case 'онлайн':
@@ -35,12 +36,8 @@ shobj.forEach(function (sho) {
             sho.classList.add("blue");
             break;
         default:
-            alert(type.innerHTML);
             break;
     }
     sho.style.top = 60 * (int - 7) + "px";
     sho.style.height = int1 + "px";
 });
-//shobj.addEventListener("click", () => {
-//    alert("Obj was found");
-//})
