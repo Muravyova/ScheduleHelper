@@ -206,6 +206,13 @@ namespace ScheduleHelper.Controllers
             ViewData["LanguageId"] = new SelectList(_context.Languages, "Id", "Name", scheduleItem.LanguageId);
             ViewData["PlaceId"] = new SelectList(_context.Places, "Id", "Id", scheduleItem.PlaceId);
             ViewData["TeacherId"] = new SelectList(_context.Teachers, "Id", "Email", scheduleItem.TeacherId);
+            ViewData["DayOfWeek"] = new SelectList(Models.Other.DayOfWeekApp.DAYS_OF_WEEK, "Key", "Name");
+            ViewData["Type"] = new SelectList(ScheduleItemType.TYPES, "Key", "Key");
+            ViewData["Duration"] = new SelectList(DURATION);
+            ViewData["StartTimes"] = new SelectList(START_TIMES);
+            ViewData["Language"] = new SelectList(_context.Languages, "Id", "Name");
+            ViewData["Place"] = new SelectList(_context.Places, "Id", "Type");
+            ViewData["Teacher"] = new SelectList(_context.Teachers, "Id", "Name");
             return View(scheduleItem);
         }
 
@@ -225,6 +232,13 @@ namespace ScheduleHelper.Controllers
             ViewData["LanguageId"] = new SelectList(_context.Languages, "Id", "Name", scheduleItem.LanguageId);
             ViewData["PlaceId"] = new SelectList(_context.Places, "Id", "Id", scheduleItem.PlaceId);
             ViewData["TeacherId"] = new SelectList(_context.Teachers, "Id", "Email", scheduleItem.TeacherId);
+            ViewData["DayOfWeek"] = new SelectList(Models.Other.DayOfWeekApp.DAYS_OF_WEEK, "Key", "Name");
+            ViewData["Type"] = new SelectList(ScheduleItemType.TYPES, "Key", "Key");
+            ViewData["Duration"] = new SelectList(DURATION);
+            ViewData["StartTimes"] = new SelectList(START_TIMES);
+            ViewData["Language"] = new SelectList(_context.Languages, "Id", "Name");
+            ViewData["Place"] = new SelectList(_context.Places, "Id", "Type");
+            ViewData["Teacher"] = new SelectList(_context.Teachers, "Id", "Name");
             return View(scheduleItem);
         }
 
