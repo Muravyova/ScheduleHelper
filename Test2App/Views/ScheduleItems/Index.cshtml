@@ -7,12 +7,13 @@
 
 <p>
     <br />
-    <a asp-action="Create">Добавить</a>
-
-    <div class="form-group">
-        <label class="control-label">Выберите дату для фильтрации:</label>
-        <input asp-for="@filter" type="date" class="form-control" />
-        <a asp-action="Index" asp-route-start="@filter">Фильтровать</a>
+        <div class="form-group">
+        <div style="float:right;" class="head_sh">
+            <label class="control-label">Выберите дату для фильтрации:</label>
+            <input asp-for="@filter" type="date" class="form-control" style="width: 150px; display: inline-block;" />
+            <a asp-action="Index" asp-route-start="@filter" class="btn btn-default" style="display: inline-block;">Фильтровать</a>
+            <a asp-action="Create" class="btn btn-default">Добавить</a>
+        </div>
     </div>
 </p>
 
@@ -30,7 +31,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>
+            <td id="sh_td_time">
                 @for (int i = 0; i < 16; i++)
                 {
                     <p id="time">@(7 + i):00</p>

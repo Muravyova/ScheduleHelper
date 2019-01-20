@@ -131,6 +131,10 @@ a > .name {
     padding-bottom: 30px;
 }
 
+#sh_td_time {
+    padding: 0 8px;
+}
+
 .shedule-obj > .place {
     color: #5A5A5A;
     font-size: 10px;
@@ -144,4 +148,8 @@ a > .name {
 
 #th_shedule {
     width: 14%;
+}
+
+.head_sh > a {
+    margin-left: 8px;
 }

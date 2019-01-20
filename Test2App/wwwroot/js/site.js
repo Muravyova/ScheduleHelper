@@ -1,8 +1,16 @@
 ﻿const shobj = document.querySelectorAll('.shedule-obj');
+
+shobj.forEach(function (sho) {
+    sho.addEventListener("click", () => {
+        sho.style.zIndex += 1;
+    })
+})
+
 shobj.forEach(function (sho) {
     var time = null;
     var dur = null;
     var type = null;
+    var pl = null;
     for (var i = 0; i < sho.childNodes.length; i++) {
         if (sho.childNodes[i].className == "hidden time") {
             time = sho.childNodes[i];
@@ -12,32 +20,43 @@ shobj.forEach(function (sho) {
         } else
             if (sho.childNodes[i].className == "hidden type") {
                 type = sho.childNodes[i];
-                break;
-            }
+            } else
+                if (sho.childNodes[i].className == "place") {
+                    pl = sho.childNodes[i];
+                    break;
+                }
     }    
-    var int = parseInt(time.innerHTML, 10);
-    var int1 = parseInt(dur.innerHTML, 10);
+    var hour = parseInt(time.innerHTML, 10);
+    var m = time.innerHTML.slice(-2);
+    var min = parseInt(m, 10);
+    var duration = parseInt(dur.innerHTML, 10);
     switch (type.innerHTML) {
         case 'группа':
         case 'Групповое занятие':
             sho.classList.add("yellow");
             break;
+        case 'Онлайн':
         case 'онлайн':
             sho.classList.add("green");
             break;
         case 'открытое':
+        case 'Открытое мероприятие':
             sho.classList.add("violet");
             break;
         case 'препод':
-        case 'преподавательское':
+        case 'Преподавательское':
             sho.classList.add("red");
             break;
         case 'индивидуальное':
+        case 'Индивидуальное занятие':
             sho.classList.add("blue");
             break;
         default:
             break;
     }
-    sho.style.top = 60 * (int-3) + "px";
-    sho.style.height = int1 + "px";
+    sho.style.top = 153 + (hour-7)*60 + min + "px";
+    sho.style.height = duration + "px";
+    if (duration > 60) {
+        pl.style.bottom = -20 + "px";
+    }
 });
