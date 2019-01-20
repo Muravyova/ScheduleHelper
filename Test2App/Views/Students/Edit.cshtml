@@ -3,22 +3,14 @@
 @{
     ViewData["Title"] = "Редактировать";
 }
-
 <br />
-
-
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
-
-            <div class="form-group" style="float:right;">
-                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-default">Удалить</a>
-                <input type="submit" value="Сохранить" class="btn btn-default" />
-            </div>
-
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
+                <h3>Имя:</h3>          
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
@@ -38,6 +30,10 @@
                 Комментарий:
                 <textarea type="text" asp-for="Comment" class="form-control"></textarea>
                 <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="float:right;">
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Удалить</a>
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </form>
     </div>

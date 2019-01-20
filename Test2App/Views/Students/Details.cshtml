@@ -27,10 +27,12 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            Комментарий
+            Комментарий:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Comment)
         </dd>
     </dl>
 </div>
+
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="margin-top:10px">Удалить</a>

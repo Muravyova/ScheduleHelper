@@ -6,14 +6,39 @@
 
 <h2>Удаление</h2>
 
-<h3>Вы уверены, что хотите удалить преподавателя <br />@Model.Name?</h3>
+<h3>Вы уверены, что хотите удалить этого преподавателя?</h3>
 <div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Имя:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Номер телефона:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>
+            E-mail:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            Комментарий:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+    </dl>
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Да" class="btn btn-default" />
-    </form>
-    <form asp-action="Details">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Нет" class="btn btn-default" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-default" style="min-width: 64px">нет</a>
     </form>
 </div>

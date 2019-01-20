@@ -7,15 +7,9 @@
 <h2>Студенты</h2>
 
 <div>
-
-    <p>
-    </p>
-
-
     <!--<p>
         <input type="button" value="Добавить" onclick="location.href='<%: Url.Action("Create", "Students" ) %>'" />
     </p>-->
-
 
     @using (Html.BeginForm())
     {
@@ -52,6 +46,7 @@
                 Кол-во платежей
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -75,10 +70,9 @@
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Детали</a>
-                    <!--
-                       <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                       <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    -->
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="card__btn--dlt" style="position:initial; color:black; display:initial; border:none; font-size:2rem">×</a>
                 </td>
             </tr>
         }
