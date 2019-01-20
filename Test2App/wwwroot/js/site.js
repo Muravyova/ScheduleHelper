@@ -38,6 +38,6 @@ shobj.forEach(function (sho) {
         default:
             break;
     }
-    sho.style.top = 60 * (int - 7) + "px";
+    sho.style.top = 60 * (int-3) + "px";
     sho.style.height = int1 + "px";
 });

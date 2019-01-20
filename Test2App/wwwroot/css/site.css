@@ -85,6 +85,7 @@ a {
 
 .shedule-obj {
     /*margin-top: 0px;*/
+    width: 150px;
     position: absolute;
     height: 60px;
     box-sizing: border-box;
@@ -106,20 +107,23 @@ a {
     float: right;
     color: #5A5A5A;
     font-size: 10px;
+    padding-bottom: 2px;
 }
 
 a > .name {
     position: relative;
     clear: right;
     /*height: 25%;*/
+    width: 99%;
     display: inline-block;
     vertical-align: middle;
     color: black;
     font-style: normal;
     white-space: nowrap; /* Запрещаем перенос строк */
     overflow: hidden; /* Обрезаем все, что не помещается в область */
-    padding: 5px; /* Поля вокруг текста */
+    padding: 16px 0;
     text-overflow: ellipsis; /* Добавляем многоточие */
+    box-sizing: border-box;
 }
 
 #time {
@@ -130,14 +134,14 @@ a > .name {
 .shedule-obj > .place {
     color: #5A5A5A;
     font-size: 10px;
-    position: absolute;
-    bottom: 1px;
+    position: relative;
+    bottom: 7px;
 }
 
 #time_td {
     width: 2%;
 }
 
-td {
+#th_shedule {
     width: 14%;
 }

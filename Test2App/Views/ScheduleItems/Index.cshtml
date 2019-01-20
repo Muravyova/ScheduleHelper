@@ -19,19 +19,18 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Время</th>
-            <th>Пн</th>
-            <th>Вт</th>
-            <th>Ср</th>
-            <th>Чт</th>
-            <th>Пт</th>
-            <th>Сб</th>
-            <th>Вс</th>
+            <th id="time_td">Время</th>
+            @foreach (var day in Model.Days)
+            {
+            <th id="th_shedule">
+                @Html.DisplayFor(modelItem => day.DayName)
+            </th>
+            }
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td id="time_td">
+            <td>
                 @for (int i = 0; i < 16; i++)
                 {
                     <p id="time">@(7 + i):00</p>
@@ -54,7 +53,7 @@
                                  </a>
                                  <div class="place">
                                      <div style="display: inline-block; float: left;">@Html.DisplayFor(modelItem => item.Teacher.Name)</div>
-                                     <div style="display: inline-block; float: right;">@Html.DisplayFor(modelItem => item.Place.Type)</div>
+                                     <div style="display: inline-block; float: right">@Html.DisplayFor(modelItem => item.Place.Type)</div>
                                  </div>
                              </div>
                          }
@@ -66,7 +65,7 @@
     </tbody>
 </table>
 
-@foreach (var day in Model.Days)
+@*@foreach (var day in Model.Days)
 {
     <h2>@Html.DisplayFor(model => day.DayName)</h2>
     @if (day.Times.Count == 0)
@@ -118,4 +117,4 @@
             </table>
         }
     }
-}
+}*@
