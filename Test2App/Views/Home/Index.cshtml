@@ -2,6 +2,33 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-
-
+<img src="~/images/plane_background_.f67efb12.jpg" class="banner"/>
+<div id="login__btn">
+    <img src="http://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+</div>
+<div id="container">
+    <h1>Вход</h1>
+    <span class="login__btn--close">×</span>
+    <form class="form-group">
+        <input class="form-control" type="email" name="email" placeholder="E-mail" style="margin-bottom:10px">
+        <input class="form-control" type="password" name="pass" placeholder="Password" style="margin-bottom:10px">
+        <a href="#" class="btn btn-default" style="width:100%; margin-bottom:10px">Войти</a>
+        <div id="remember-container">
+            <input type="checkbox" id="checkbox-2-1" class="login__checkbox" checked="checked" />
+            <span id="remember">Запомнить меня</span>
+            <span id="forgotten">Забыли пароль?</span>
+        </div>
+    </form>
+</div>
+<!-- Forgotten Password Container -->
+<div id="forgotten-container">
+    <h1 style="margin-top:10px">Новый пароль</h1>
+    <span class="login__btn--close">×</span>
+    <form>
+        <input type="email" name="email" placeholder="E-mail" class="form-control" style="margin-bottom:10px">
+        <a href="#" class="btn btn-default" style="width:100%">Получить на почту</a>
+    </form>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="~/js/login.js"></script>
