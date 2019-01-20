@@ -14,11 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="StudentId" class="control-label">Студент</label>
-                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.Student"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ScheduleItemId" class="control-label">Занятие</label>
-                <select asp-for="ScheduleItemId" class="form-control" asp-items="ViewBag.ScheduleItemId"></select>
+                <select asp-for="ScheduleItemId" class="form-control" asp-items="ViewBag.ScheduleItem"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Создать" class="btn btn-default" />

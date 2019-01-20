@@ -54,7 +54,7 @@ shobj.forEach(function (sho) {
         default:
             break;
     }
-    sho.style.top = 153 + (hour-7)*60 + min + "px";
+    sho.style.top = 153 + (hour-6)*60 + min + "px";
     sho.style.height = duration + "px";
     if (duration > 60) {
         pl.style.bottom = -20 + "px";

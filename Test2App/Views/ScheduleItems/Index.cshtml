@@ -32,9 +32,9 @@
     <tbody>
         <tr>
             <td id="sh_td_time">
-                @for (int i = 0; i < 16; i++)
+                @for (int i = 0; i < 19; i++)
                 {
-                    <p id="time">@(7 + i):00</p>
+                    <p id="time">@(6 + i):00</p>
                 }
             </td>
                 @foreach (var day in Model.Days)
@@ -52,9 +52,9 @@
                                  <a asp-action="Details" asp-route-id="@item.Id" asp-route-cw="@Model.CurrentWeek">
                                      <div class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</div>
                                  </a>
-                                 <div class="place">
-                                     <div style="display: inline-block; float: left;">@Html.DisplayFor(modelItem => item.Teacher.Name)</div>
-                                     <div style="display: inline-block; float: right">@Html.DisplayFor(modelItem => item.Place.Type)</div>
+                                 <div class="place" style="overflow:hidden; display: -webkit-flex; display: flex; justify-content: space-between;">
+                                     <div style="display: inline-block; white-space: nowrap; max-width: 70%; text-overflow: ellipsis; overflow: hidden;">@Html.DisplayFor(modelItem => item.Teacher.Name)</div>
+                                     <div style="display: inline-block; white-space: nowrap;">@Html.DisplayFor(modelItem => item.Place.Type)</div>
                                  </div>
                              </div>
                          }
