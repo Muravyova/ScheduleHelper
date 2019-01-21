@@ -45,27 +45,34 @@ namespace ScheduleHelper.Controllers
             return View(payment);
         }
 
-        // GET: Payments/Create/id
-        public async Task<IActionResult> Create(Guid? s)
+        public IActionResult Create()
         {
-            if (s == null)
-            {
-                return NotFound();
-            }
-
-            var student = await _context.Students.SingleOrDefaultAsync(it => it.Id == s);
-
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "Title");
-            ViewData["StudentName"] = student.Name;
-            ViewData["StudentId"] = student.Id;
-
+            ViewData["ScheduleItem"] = new SelectList(_context.ScheduleItems, "Id", "Title");
+            ViewData["Student"] = new SelectList(_context.Students, "Id", "Name");
             return View();
         }
+
+        //// GET: Payments/Create/id
+        //public async Task<IActionResult> Create(Guid? s)
+        //{
+        //    if (s == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var student = await _context.Students.SingleOrDefaultAsync(it => it.Id == s);
+
+        //    if (student == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "Title");
+        //    ViewData["StudentName"] = student.Name;
+        //    ViewData["StudentId"] = student.Id;
+
+        //    return View();
+        //}
 
         // POST: Payments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -83,6 +90,8 @@ namespace ScheduleHelper.Controllers
             }
             ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "StartTime", payment.ScheduleItemId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", payment.StudentId);
+            ViewData["ScheduleItem"] = new SelectList(_context.ScheduleItems, "Id", "Title");
+            ViewData["Student"] = new SelectList(_context.Students, "Id", "Name");
             return View(payment);
         }
 

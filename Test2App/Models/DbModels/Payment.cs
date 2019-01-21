@@ -16,9 +16,9 @@ namespace ScheduleHelper.Models.DbModels
         [Required]
         public Int32 Count { get; set; }
 
-        public Boolean Refund { get; set; } = false;
+        //public Boolean Refund { get; set; } = false;
 
-        public Double RefundPay { get; set; } = 0;
+        //public Double RefundPay { get; set; } = 0;
 
         [Required]
         public Guid ScheduleItemId { get; set; }

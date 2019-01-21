@@ -4,31 +4,31 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Детали</h2>
 
 <div>
-    <h4>Payment</h4>
+    <h4>Оплата</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            Дата:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Date)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Pay)
+            Сумма:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Pay)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Count)
+            Количество занятий:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Count)
         </dd>
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Refund)
         </dt>
         <dd>
@@ -39,22 +39,22 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.RefundPay)
-        </dd>
+        </dd>*@
         <dt>
-            @Html.DisplayNameFor(model => model.ScheduleItem)
+            Занятие:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ScheduleItem.StartTime)
+            @Html.DisplayFor(model => model.ScheduleItem.Title)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Student)
+            Студент:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Student.Email)
+            @Html.DisplayFor(model => model.Student.Name)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Редактировать</a>
+    <a asp-action="Index" class="btn btn-default">Назад</a>
 </div>
