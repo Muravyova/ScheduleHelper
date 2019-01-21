@@ -21,12 +21,12 @@
             <th>
                 Количество занятий
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Refund)
+            <th>
+                Возврат?
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RefundPay)
-            </th>*@
+                Сумма возврата
+            </th>
             <th>
                 Занятие
             </th>
@@ -50,11 +50,11 @@
                     @Html.DisplayFor(modelItem => item.Count)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Refund)
+                    @Html.DisplayFor(modelItem => item.Refund)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.RefundPay)
-                </td>*@
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ScheduleItem.StartTime)
                 </td>

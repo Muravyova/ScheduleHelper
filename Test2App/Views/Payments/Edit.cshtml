@@ -27,18 +27,18 @@
                 <input asp-for="Count" class="form-control" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
+            <div class="form-group">
             <div class="checkbox">
                 <label>
-                    <input asp-for="Refund" /> @Html.DisplayNameFor(model => model.Refund)
+                    <input asp-for="Refund" /> Возврат?
                 </label>
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="RefundPay" class="control-label"></label>
+            <label asp-for="RefundPay" class="control-label">Сумма возврата</label>
             <input asp-for="RefundPay" class="form-control" />
             <span asp-validation-for="RefundPay" class="text-danger"></span>
-        </div>*@
+        </div>
             <div class="form-group">
                 <label asp-for="ScheduleItemId" class="control-label">Занятие</label>
                 <select asp-for="ScheduleItemId" class="form-control" asp-items="ViewBag.ScheduleItem"></select>
