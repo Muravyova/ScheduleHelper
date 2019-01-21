@@ -42,6 +42,8 @@ img {
 
 .table {
     /*height: 1100px;*/
+    table-layout: fixed;
+    width: 1150px;
 }
 
 .hidden {
@@ -123,6 +125,7 @@ a > .name {
 
 #sh_td_time {
     padding: 0 8px;
+    text-align: center;
 }
 
 .shedule-obj > .place {
@@ -133,13 +136,21 @@ a > .name {
 }
 
 #time_td {
-    width: 2%;
+    width: auto;
 }
 
 #th_shedule {
-    width: 14%;
+    width: 154px;
 }
 
 .head_sh > a {
     margin-left: 8px;
+}
+
+.head_sh {
+    min-width: 616px;
+}
+
+#shedule_body {
+    min-width: 616px;
 }
