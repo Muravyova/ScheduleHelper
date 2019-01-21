@@ -43,6 +43,8 @@ img {
 
 .table {
     /*height: 1100px;*/
+    table-layout: fixed;
+    width: 1140px;
 }
 
 .hidden {
@@ -124,6 +126,7 @@ a > .name {
 
 #sh_td_time {
     padding: 0 8px;
+    text-align: center;
 }
 
 .shedule-obj > .place {
@@ -134,13 +137,55 @@ a > .name {
 }
 
 #time_td {
-    width: 2%;
+    width: auto;
 }
 
 #th_shedule {
-    width: 14%;
+    width: 154px;
 }
 
 .head_sh > a {
     margin-left: 8px;
+}
+
+.head_sh {
+    min-width: 616px;
+    width: 1140px;
+    background-color: #E5E5E5;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 16px;
+    box-sizing: border-box;
+}
+
+.legend_sh {
+    display: inline-block;
+}
+
+#leg {
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+
+.op_leg{
+}
+
+.leg_in {
+    font-size: 12px;
+    display: inline-block;
+}
+
+    .leg_in > * {
+        display: inline-block;
+    }
+
+.circl_leg {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+#shedule_body {
+    min-width: 616px;
 }

@@ -31,23 +31,18 @@ shobj.forEach(function (sho) {
     var min = parseInt(m, 10);
     var duration = parseInt(dur.innerHTML, 10);
     switch (type.innerHTML) {
-        case 'группа':
         case 'Групповое занятие':
             sho.classList.add("yellow");
             break;
         case 'Онлайн':
-        case 'онлайн':
             sho.classList.add("green");
             break;
-        case 'открытое':
         case 'Открытое мероприятие':
             sho.classList.add("violet");
             break;
-        case 'препод':
         case 'Преподавательское':
             sho.classList.add("red");
             break;
-        case 'индивидуальное':
         case 'Индивидуальное занятие':
             sho.classList.add("blue");
             break;
