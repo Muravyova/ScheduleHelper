@@ -9,6 +9,7 @@
     <div>
         <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Редактировать</a>
         <br />
+        <br />
         @if (Model.ScheduleItems.Count != 0)
         {
             <h6>Нельзя удалить преподавателя, пока имеются занятия связанные с ним</h6>
