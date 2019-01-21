@@ -3,15 +3,22 @@
 @{
     ViewData["Title"] = "Преподаватели";
 }
+
+
 <div id="global-wrapper">
+
+    <h2>Преподаватели</h2>
+
+    @using (Html.BeginForm())
+    {
     <p>
         <br />
-        <h2>Преподаватели</h2>
-        <a asp-action="Create" style="float:left" class="btn btn-default">Добавить</a>
-        <a href="javascript:PopUpShow()" class="btn btn-default" id="open__btn">Открыть всплывающее окно</a>
-        <br />
-        <br />
+        <a asp-action="Create" style="float:right" class="btn btn-default">Добавить</a>
+        <a href="javascript:PopUpShow()" style="float:right" class="btn btn-default" id="open__btn">Открыть всплывающее окно</a>
+        @Html.TextBox("SearchString")
+        <input type="submit" value=" " />
     </p>
+    }
 
     <ul class="cards">
         @foreach (var item in Model)

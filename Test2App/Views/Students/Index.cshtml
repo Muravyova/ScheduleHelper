@@ -7,10 +7,6 @@
 <h2>Студенты</h2>
 
 <div>
-    <!--<p>
-        <input type="button" value="Добавить" onclick="location.href='<%: Url.Action("Create", "Students" ) %>'" />
-    </p>-->
-
     @using (Html.BeginForm())
     {
         <p>
@@ -19,8 +15,6 @@
 
             @Html.TextBox("SearchString")
             <input type="submit" value=" " />
-            <br />
-            <br />
             <a asp-route="" style="float:right" class="btn btn-default">Посещаемость</a>
 
         </p>

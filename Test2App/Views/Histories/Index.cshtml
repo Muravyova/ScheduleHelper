@@ -4,28 +4,34 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Уведомления</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <br />
+        <a asp-action="Create" style="float:right" class="btn btn-default">Добавить</a>
+        @Html.TextBox("SearchString")
+        <input type="submit" value=" " />
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                Дата
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Time)
+                Время
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Comment)
+                Комментарий
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ScheduleItem)
+                Занятие
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Student)
+                Студент
             </th>
             <th></th>
         </tr>
@@ -50,9 +56,9 @@
                     @Html.DisplayFor(modelItem => item.Student.Email)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                 </td>
             </tr>
         }

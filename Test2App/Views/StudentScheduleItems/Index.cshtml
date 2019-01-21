@@ -6,9 +6,15 @@
 
 <h2>Записать студента</h2>
 
-<p>
-    <a asp-action="Create" class="btn btn-default">Создать новую запись</a>
-</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <br />
+        <a asp-action="Create" style="float:right" class="btn btn-default">Добавить запись</a>
+        @Html.TextBox("SearchString")
+        <input type="submit" value=" " />
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
