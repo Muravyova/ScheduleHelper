@@ -11,7 +11,7 @@ namespace ScheduleHelper.Models.Other
         public static List<ScheduleItemType> TYPES = new List<ScheduleItemType>
         {
             new ScheduleItemType("Групповое занятие"),
-            new ScheduleItemType("Индивидуальное занятие"),
+            new ScheduleItemType("Преподавательское"),
             new ScheduleItemType("Индивидуальное занятие"),
             new ScheduleItemType("Открытое мероприятие"),
             new ScheduleItemType("Онлайн")

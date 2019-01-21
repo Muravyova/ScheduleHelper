@@ -6,17 +6,59 @@
 }
 
 <div id="shedule_body">
-    <p>
-        <br />
+    
         <div class="form-group">
-            <div style="float:right;" class="head_sh">
-                <label class="control-label">Выберите дату для фильтрации:</label>
-                <input asp-for="@filter" type="date" class="form-control" style="width: 150px; display: inline-block;" />
-                <a asp-action="Index" asp-route-start="@filter" class="btn btn-default" style="display: inline-block;">Фильтровать</a>
-                <a asp-action="Create" class="btn btn-default">Добавить</a>
+            <div class="head_sh">
+                <table class="legend_sh">
+                    <tr>
+                        <td id="leg">
+                            <div class="leg_in">
+                                <div class="circl_leg yellow"></div>
+                                - групповое занятие
+                            </div>
+                        </td>
+                        <td id="leg">
+                            <div class="leg_in">
+                                <div class="circl_leg red"></div>
+                                - преподавательское
+                            </div>
+                        </td>
+                        <td id="leg">
+                            <div class="leg_in">
+                                <div class="circl_leg green"></div>
+                                - онлайн
+                            </div>
+                        </td>
+                        <td id="op_leg">
+                            
+                                <label class="control-label">Выберите дату для фильтрации:</label>
+                                <input asp-for="@filter" type="date" class="form-control" style="width: 150px; display: inline-block;" />
+                                <a asp-action="Index" asp-route-start="@filter" class="btn btn-default" style="display: inline-block;">Фильтровать</a>
+                                <a asp-action="Create" class="btn btn-default">Добавить</a>
+                            
+                        </td>
+                        </tr>
+                    <tr>
+                        <td id="leg">
+                            <div class="leg_in">
+                                <div class="circl_leg blue"></div>
+                                - индивидуальное занятие
+                            </div>
+                        </td>
+                       
+                        
+                        <td id="leg">
+                            <div class="leg_in">
+                                <div class="circl_leg violet"></div>
+                                - открытое мероприяте
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
             </div>
         </div>
-    </p>
+    
 
     <table class="table">
         <thead>
