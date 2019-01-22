@@ -83,7 +83,7 @@
                 </td>
                 @foreach (var day in Model.Days)
                 {
-                    <td>
+                    <td class="weekdays">
                         @foreach (var time in day.Times)
                         {
                             @foreach (var item in time.Items)
@@ -92,18 +92,19 @@
                                     <div class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</div>
                                     <div class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</div>
                                     <div class="hidden type">@Html.DisplayFor(modelItem => item.Type)</div>
+                                    <div class="hidden day">@Html.DisplayFor(modelItem => day.DayName)</div>
                                     <div class="timeDur">@Html.DisplayFor(modelItem => item.StartTime) (@Html.DisplayFor(modelItem => item.Duration) минут)</div>
                                     <a asp-action="Details" asp-route-id="@item.Id" asp-route-cw="@Model.CurrentWeek">
                                         <div class="name">@Html.DisplayFor(modelItem => item.Title) (@Html.DisplayFor(modelItem => item.Language.Name))</div>
                                     </a>
                                     <div class="place" style="overflow:hidden; display: -webkit-flex; display: flex; justify-content: space-between;">
-                                        <div style="display: inline-block; white-space: nowrap; max-width: 70%; text-overflow: ellipsis; overflow: hidden;">@Html.DisplayFor(modelItem => item.Teacher.Name)</div>
+                                        <div style = "display: inline-block; white-space: nowrap; max-width: 70%; text-overflow: ellipsis; overflow: hidden;" > @Html.DisplayFor(modelItem => item.Teacher.Name) </div>
                                         <div style="display: inline-block; white-space: nowrap;">@Html.DisplayFor(modelItem => item.Place.Type)</div>
                                     </div>
                                 </div>
                             }
 
-                        }
+                                    }
                     </td>
                 }
             </tr>

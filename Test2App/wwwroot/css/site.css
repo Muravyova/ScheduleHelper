@@ -51,6 +51,10 @@ img {
     display: none;
 }
 
+.overlay_sh {
+    display: none;
+}
+
 .blue {
     background-color: #BBDEFE;
     border: 2px solid #5FBAFC;
