@@ -154,7 +154,7 @@ a > .name {
     padding-bottom: 8px;
     padding-left: 8px;
     padding-right: 8px;
-    padding-top: 16px;
+    padding-top: 12px;
     box-sizing: border-box;
 }
 
@@ -165,6 +165,7 @@ a > .name {
 #leg {
     padding-right: 8px;
     box-sizing: border-box;
+    min-width: 187px;
 }
 
 .op_leg{
@@ -176,13 +177,24 @@ a > .name {
 }
 
     .leg_in > * {
-        display: inline-block;
+        display: inline;
+    }
+
+    .leg_in > text {
+        top: 50%;
+        line-height: 20px;
+        margin-left: 4px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        color: #5A5A5A;
     }
 
 .circl_leg {
     border-radius: 50%;
     width: 20px;
     height: 20px;
+    padding-left: 16px;
 }
 
 #shedule_body {
