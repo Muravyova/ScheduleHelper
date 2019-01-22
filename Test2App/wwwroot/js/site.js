@@ -1,57 +1,8 @@
 ﻿const shobj = document.querySelectorAll('.shedule-obj');
 var check = [];
+const days = document.querySelectorAll('.weekdays');
 
-/*Закоменченая попытка сделать обработку перекрывающих элементов*/
-
-
-//const days = document.querySelectorAll('.weekdays');
-
-//NodeList.prototype.forEach = Array.prototype.forEach;
-
-//days.forEach(function (day) {
-//    var day_obj = day.childNodes;
-//    var same = [];
-//    day_obj.forEach(function (obj) {
-//        var time = null;
-//        for (var i = 0; i < obj.childNodes.length; i++)
-//        {
-//            if (obj.childNodes[i].className == "hidden time") {
-//                time = parseInt(obj.childNodes[i].innerHTML, 10);
-//                if (same[time] == 0) {
-//                    same[time]++;
-//                } else {
-//                    same[time] = 0;
-//                }
-//            }
-//        }
-//    });
-//    day_obj.forEach(function (obj) {
-//        var time = null;
-//        var check = [];
-//        for (var i = 0; i < obj.childNodes.length; i++) {
-//            check[i] = 0;
-//        }
-//        for (var i = 0; i < obj.childNodes.length; i++) {
-//            if (obj.childNodes[i].className == "hidden time") {
-//                time = parseInt(obj.childNodes[i].innerHTML, 10);
-//                if (same[time] > 0) {
-//                    obj.classList.add("hidden");
-//                    if (check[time] == 0) {
-//                        check[time]++;
-//                        var div = document.createElement('div');
-//                        div.style.top = 170 + (time - 6) * 60 + "px";
-//                        div.style.height = "60px";
-//                        div.classList.add("shedule-obj");
-//                        div.classList.add("special");
-//                        day.appendChild(div);
-//                        alert(check[time]);
-//                    } 
-//                }
-//            }
-//        }
-//    });
-    
-//});
+NodeList.prototype.forEach = Array.prototype.forEach;
 
 //function contains(a, obj) {
 //    var i = a.length;
@@ -62,6 +13,57 @@ var check = [];
 //    }
 //    return false;
 //}
+
+
+days.forEach(function (day) {
+    var day_obj = day.childNodes;
+    var same = [];
+    for (var i = 0; i < day.childNodes.length; i++) {
+        check[i] = 0;
+    }
+    day_obj.forEach(function (obj) {
+        var time = null;
+        for (var i = 0; i < obj.childNodes.length; i++)
+        {
+            if (obj.childNodes[i].className == "hidden time") {
+                time = parseInt(obj.childNodes[i].innerHTML, 10);
+                if (same[time] == 0) {
+                    same[time]++;
+                } else {
+                    same[time] = 0;
+                }
+            }
+        }
+    });
+    day_obj.forEach(function (obj) {
+        var time = null;
+        for (var i = 0; i < obj.childNodes.length; i++) {
+            if (obj.childNodes[i].className == "hidden time") {
+                time = parseInt(obj.childNodes[i].innerHTML, 10);
+                if (same[time] > 0) {
+                    obj.classList.add("hidden");
+                    if (check[time] == 0) {
+                        check[time]++;
+                        var div = document.createElement('div');
+                        div.style.top = 170 + (time - 6) * 60 + "px";
+                        div.classList.add("shedule-obj");
+                        div.classList.add("special");
+                        div.innerHTML = "Перекрытие";
+                        day.appendChild(div);
+                    } 
+                }
+            }
+        }
+    });
+    
+});
+
+var hid = document.querySelectorAll('.special');
+hid.forEach(function (overlay) {
+    overlay.addEventListener('click', () => {
+        alert(1);
+    })
+});
 
 shobj.forEach(function (sho) {
     sho.addEventListener("click", () => {
@@ -123,22 +125,5 @@ shobj.forEach(function (sho) {
     if (duration > 60) {
         pl.style.bottom = -20 + "px";
     }
-
     
-    //if (!contains(check, day.innerHTML + hour)) {
-    //    check.push(day.innerHTML + hour);
-    //} else {
-    //    sho.classList.remove("red");
-    //    sho.classList.remove("violet");
-    //    sho.classList.remove("blue");
-    //    sho.classList.remove("green");
-    //    sho.classList.remove("yellow");
-    //    sho.classList.add("overlay_sh");
-    //    var div = document.createElement('div');
-    //    div.style.top = sho.style.top;
-    //    div.style.height = "60px";
-    //    div.classList.add("shedule-obj");
-    //    div.classList.add("special");
-    //    sho.parentNode.appendChild(div);
-    //}
 });
