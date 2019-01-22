@@ -7,7 +7,6 @@
 
 <div id="shedule_body">
     
-        <div class="form-group">
             <div class="head_sh">
                 <table class="legend_sh">
                     <tr>
@@ -57,19 +56,18 @@
                 </table>
                 
             </div>
-        </div>
-    
-
+  
     <table class="table">
         <thead>
             <tr>
                 <th id="time_td">Время</th>
-                @foreach (var day in Model.Days)
-            {
-                    <th id="th_shedule">
-                        @Html.DisplayFor(modelItem => day.DayName)
-                    </th>
-                }
+                <th id="th_shedule">Пн</th>
+                <th id="th_shedule">Вт</th>
+                <th id="th_shedule">Ср</th>
+                <th id="th_shedule">Чт</th>
+                <th id="th_shedule">Пт</th>
+                <th id="th_shedule">Сб</th>
+                <th id="th_shedule">Вс</th>
             </tr>
         </thead>
         <tbody>
