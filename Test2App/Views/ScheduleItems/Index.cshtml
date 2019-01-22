@@ -7,26 +7,25 @@
 
 <div id="shedule_body">
     
-        <div class="form-group">
             <div class="head_sh">
                 <table class="legend_sh">
                     <tr>
                         <td id="leg">
                             <div class="leg_in">
-                                <div class="circl_leg yellow"></div>
-                                - групповое занятие
+                                <div class="circl_leg yellow"> </div>
+                                <text>- групповое занятие</text>
                             </div>
                         </td>
                         <td id="leg">
                             <div class="leg_in">
-                                <div class="circl_leg red"></div>
-                                - преподавательское
+                                <div class="circl_leg red"> </div>
+                                <text>- преподавательское</text>
                             </div>
                         </td>
                         <td id="leg">
                             <div class="leg_in">
-                                <div class="circl_leg green"></div>
-                                - онлайн
+                                <div class="circl_leg green"> </div>
+                                <text>- онлайн</text>
                             </div>
                         </td>
                         <td id="op_leg">
@@ -41,35 +40,34 @@
                     <tr>
                         <td id="leg">
                             <div class="leg_in">
-                                <div class="circl_leg blue"></div>
-                                - индивидуальное занятие
+                                <div class="circl_leg blue"> </div>
+                                <text>- индивидуальное занятие</text>
                             </div>
                         </td>
                        
                         
                         <td id="leg">
                             <div class="leg_in">
-                                <div class="circl_leg violet"></div>
-                                - открытое мероприяте
+                                <div class="circl_leg violet"> </div>
+                                <text>- открытое мероприяте</text>
                             </div>
                         </td>
                     </tr>
                 </table>
                 
             </div>
-        </div>
-    
-
+  
     <table class="table">
         <thead>
             <tr>
                 <th id="time_td">Время</th>
-                @foreach (var day in Model.Days)
-            {
-                    <th id="th_shedule">
-                        @Html.DisplayFor(modelItem => day.DayName)
-                    </th>
-                }
+                <th id="th_shedule">Пн</th>
+                <th id="th_shedule">Вт</th>
+                <th id="th_shedule">Ср</th>
+                <th id="th_shedule">Чт</th>
+                <th id="th_shedule">Пт</th>
+                <th id="th_shedule">Сб</th>
+                <th id="th_shedule">Вс</th>
             </tr>
         </thead>
         <tbody>
