@@ -1,4 +1,5 @@
 ﻿@model ScheduleHelper.Models.ViewModels.ScheduleViewModel
+@using static ScheduleHelper.Models.Other.DateTimeExtensions
 
 @{
     ViewData["Title"] = "Расписание";
@@ -22,19 +23,20 @@
                                 <text>- преподавательское</text>
                             </div>
                         </td>
-                        <td id="leg">
+                        <td id="leg_last">
                             <div class="leg_in">
                                 <div class="circl_leg green"> </div>
                                 <text>- онлайн</text>
                             </div>
                         </td>
                         <td id="op_leg">
-                            
-                                <label class="control-label">Выберите дату для фильтрации:</label>
                                 <input asp-for="@filter" type="date" class="form-control" style="width: 150px; display: inline-block;" />
                                 <a asp-action="Index" asp-route-start="@filter" class="btn btn-default" style="display: inline-block;">Фильтровать</a>
                                 <a asp-action="Create" class="btn btn-default">Добавить</a>
-                            
+                            <label>
+                                @DateTime.Now.StartOfWeek(DayOfWeek.Monday).Day.@DateTime.Now.StartOfWeek(DayOfWeek.Monday).Month.@DateTime.Now.StartOfWeek(DayOfWeek.Monday).Year
+                                - @DateTime.Now.StartOfWeek(DayOfWeek.Monday).AddDays(6).Day.@DateTime.Now.StartOfWeek(DayOfWeek.Monday).AddDays(6).Month.@DateTime.Now.StartOfWeek(DayOfWeek.Monday).AddDays(6).Year
+                            </label>
                         </td>
                         </tr>
                     <tr>

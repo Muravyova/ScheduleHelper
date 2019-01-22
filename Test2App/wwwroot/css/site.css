@@ -169,6 +169,12 @@ a > .name {
     min-width: 187px;
 }
 
+#leg_last {
+    padding-right: 8px;
+    box-sizing: border-box;
+    min-width: 280px;
+}
+
 .op_leg{
 }
 
