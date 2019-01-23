@@ -8,15 +8,19 @@ namespace ScheduleHelper.Models.DbModels
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
-        [Required]
+        [Required(ErrorMessage = "Поле должно быть заполнено")]
+        [MaxLength(50, ErrorMessage = "Поле не должно содержать больше 50 символов")]
         public String Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Поле должно быть заполнено")]
+       [RegularExpression(@"^(\d{11})$", ErrorMessage = "Некорректный номер")]
         public String PhoneNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Поле должно быть заполнено")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Некорректный адрес")]
         public String Email { get; set; }
 
+         [MaxLength(200, ErrorMessage = "Поле не должно содержать больше 200 символов")]
         public String Comment { get; set; } = null;
 
         public ICollection<ScheduleItem> ScheduleItems { get; set; } = null;
