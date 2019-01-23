@@ -60,18 +60,9 @@ namespace ScheduleHelper.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,Time,Comment,StudentId,ScheduleItemId")] History history)
         {
-            if (ModelState.IsValid)
-            {
-                history.Id = Guid.NewGuid();
-                _context.Add(history);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "StartTime", history.ScheduleItemId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", history.StudentId);
-            ViewData["ScheduleItem"] = new SelectList(_context.ScheduleItems, "Id", "Title");
-            ViewData["Student"] = new SelectList(_context.Students, "Id", "Name");
-            return View(history);
+            _context.Add(history);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Histories/Edit/5

@@ -1,26 +1,41 @@
 ﻿@model ScheduleHelper.Models.DbModels.Place
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Удалить";
 }
 
 <h2>Удалить</h2>
 
-<h3>Вы уверены что хотите удалить это место?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Тип:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-    </dl>
+@if (ViewBag.CanDelete == true)
+{
+    <h3>Вы уверены что хотите удалить это место?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Тип:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+        </dl>
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Удалить" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-default">Назад</a>
-    </form>
-</div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-default">Назад</a>
+        </form>
+    </div>
+
+}
+else
+{
+    <h3>Вы не можете удалить данную аудиторию, т.к. в ней ведутся занятия.</h3>
+    <div>
+        <hr />
+        <form asp-action="Index">
+            <a asp-action="Index" class="btn btn-default">Назад</a>
+        </form>
+    </div>
+
+}

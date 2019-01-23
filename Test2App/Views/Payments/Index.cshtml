@@ -62,10 +62,10 @@
                     @Html.DisplayFor(modelItem => item.RefundPay)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ScheduleItem.StartTime)
+                    @Html.DisplayFor(modelItem => item.ScheduleItem.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Student.Email)
+                    @Html.DisplayFor(modelItem => item.Student.Name)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |

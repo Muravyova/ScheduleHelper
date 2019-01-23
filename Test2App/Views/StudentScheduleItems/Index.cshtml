@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ScheduleHelper.Models.DbModels.StudentScheduleItem>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Главная";
 }
 
 <h2>Записать студента</h2>
@@ -32,15 +32,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ScheduleItem.StartTime)
+                    @Html.DisplayFor(modelItem => item.ScheduleItem.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Student.Email)
+                    @Html.DisplayFor(modelItem => item.Student.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Удалить", "Delete", new { scheduleItemId = item.ScheduleItemId, studentId = item.StudentId })
                 </td>
             </tr>
         }

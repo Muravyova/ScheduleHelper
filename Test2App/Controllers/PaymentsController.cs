@@ -81,18 +81,9 @@ namespace ScheduleHelper.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,Pay,Count,ScheduleItemId,StudentId")] Payment payment)
         {
-            if (ModelState.IsValid)
-            {
-                payment.Id = Guid.NewGuid();
-                _context.Add(payment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "StartTime", payment.ScheduleItemId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", payment.StudentId);
-            ViewData["ScheduleItem"] = new SelectList(_context.ScheduleItems, "Id", "Title");
-            ViewData["Student"] = new SelectList(_context.Students, "Id", "Name");
-            return View(payment);
+            _context.Add(payment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Payments/Edit/5

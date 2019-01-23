@@ -62,9 +62,21 @@ namespace ScheduleHelper.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StudentId,ScheduleItemId")] StudentScheduleItem studentScheduleItem)
         {
+            var findValue = _context.StudentScheduleItems.FirstOrDefault(it => 
+            it.StudentId == studentScheduleItem.StudentId && it.ScheduleItemId == studentScheduleItem.ScheduleItemId);
+
+            if(findValue != null)
+            {
+                ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "StartTime");
+                ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
+                ViewData["ScheduleItem"] = new SelectList(_context.ScheduleItems, "Id", "Title");
+                ViewData["Student"] = new SelectList(_context.Students, "Id", "Name");
+                ViewData["CreateError"] = "Данная запись уже имеется";
+                return View();
+            }
+
             if (ModelState.IsValid)
             {
-                studentScheduleItem.StudentId = Guid.NewGuid();
                 _context.Add(studentScheduleItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -130,9 +142,9 @@ namespace ScheduleHelper.Controllers
         }
 
         // GET: StudentScheduleItems/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid? scheduleItemId, Guid? studentId)
         {
-            if (id == null)
+            if (scheduleItemId == null && studentId == null)
             {
                 return NotFound();
             }
@@ -140,7 +152,7 @@ namespace ScheduleHelper.Controllers
             var studentScheduleItem = await _context.StudentScheduleItems
                 .Include(s => s.ScheduleItem)
                 .Include(s => s.Student)
-                .SingleOrDefaultAsync(m => m.StudentId == id);
+                .SingleOrDefaultAsync(m => m.StudentId == studentId && m.ScheduleItemId == scheduleItemId);
             if (studentScheduleItem == null)
             {
                 return NotFound();
@@ -152,9 +164,10 @@ namespace ScheduleHelper.Controllers
         // POST: StudentScheduleItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid scheduleItemId, Guid studentId)
         {
-            var studentScheduleItem = await _context.StudentScheduleItems.SingleOrDefaultAsync(m => m.StudentId == id);
+            var studentScheduleItem = await _context.StudentScheduleItems.SingleOrDefaultAsync(m => m.StudentId == studentId 
+            && m.ScheduleItemId == scheduleItemId);
             _context.StudentScheduleItems.Remove(studentScheduleItem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

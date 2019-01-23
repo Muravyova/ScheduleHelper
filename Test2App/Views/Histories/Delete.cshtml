@@ -1,14 +1,13 @@
 ﻿@model ScheduleHelper.Models.DbModels.History
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Удалить";
 }
 
 <h2>Удаление</h2>
 
 <h3>Вы действительно хотите удалить эту запись?</h3>
 <div>
-    <h4>History</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -33,13 +32,13 @@
             Занятие:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ScheduleItem.StartTime)
+            @Html.DisplayFor(model => model.ScheduleItem.Title)
         </dd>
         <dt>
             Студент:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Student.Email)
+            @Html.DisplayFor(model => model.Student.Name)
         </dd>
     </dl>
 

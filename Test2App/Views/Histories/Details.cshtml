@@ -1,13 +1,12 @@
 ﻿@model ScheduleHelper.Models.DbModels.History
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Детали";
 }
 
 <h2>Детали</h2>
 
 <div>
-    <h4>History</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -32,13 +31,13 @@
             Занятие:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ScheduleItem.StartTime)
+            @Html.DisplayFor(model => model.ScheduleItem.Title)
         </dd>
         <dt>
             Студент:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Student.Email)
+            @Html.DisplayFor(model => model.Student.Name)
         </dd>
     </dl>
 </div>

@@ -11,5 +11,7 @@ namespace ScheduleHelper.Models.ViewModels
         public DateTime CurrentWeek { get; set; }
 
         public List<ScheduleDay> Days { get; set; }
+
+        public DateTime? Time { get; set; }
     }
 }

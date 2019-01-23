@@ -49,7 +49,6 @@ namespace ScheduleHelper.Controllers
         // GET: ScheduleItems
         public async Task<IActionResult> Index(String start)
         {
-         
             DateTime sD;
             if (start != null)
             {

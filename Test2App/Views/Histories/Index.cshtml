@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ScheduleHelper.Models.DbModels.History>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Главная";
 }
 
 <h2>Уведомления</h2>
@@ -50,10 +50,10 @@
                     @Html.DisplayFor(modelItem => item.Comment)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ScheduleItem.StartTime)
+                    @Html.DisplayFor(modelItem => item.ScheduleItem.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Student.Email)
+                    @Html.DisplayFor(modelItem => item.Student.Name)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |

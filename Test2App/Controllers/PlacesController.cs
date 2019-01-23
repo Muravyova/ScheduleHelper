@@ -123,6 +123,17 @@ namespace ScheduleHelper.Controllers
                 return NotFound();
             }
 
+
+            var findValue = _context.ScheduleItems.FirstOrDefault(it => it.PlaceId == id);
+
+            if(findValue != null)
+            {
+                ViewData["CanDelete"] = false;
+            } else
+            {
+                ViewData["CanDelete"] = true;
+            }
+
             var place = await _context.Places
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (place == null)

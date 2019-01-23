@@ -1,12 +1,10 @@
 ﻿@model ScheduleHelper.Models.DbModels.History
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Создать";
 }
 
 <h2>Создать</h2>
-
-<h4>History</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +12,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label">Дата</label>
-                <input asp-for="Date" class="form-control" />
+                <input asp-for="Date" type="date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">

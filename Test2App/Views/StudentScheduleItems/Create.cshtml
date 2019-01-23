@@ -1,7 +1,7 @@
 ﻿@model ScheduleHelper.Models.DbModels.StudentScheduleItem
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Создать";
 }
 
 <h2>Новая запись</h2>
@@ -21,6 +21,12 @@
                 <select asp-for="ScheduleItemId" class="form-control" asp-items="ViewBag.ScheduleItem"></select>
             </div>
             <div class="form-group">
+                @if (ViewBag.CreateError != null)
+                {
+                    <label class="control-label">@ViewBag.CreateError</label>
+                    <br/>
+                }
+
                 <input type="submit" value="Создать" class="btn btn-default" />
             </div>
         </form>
