@@ -88,6 +88,7 @@ img {
 
 .shedule-obj {
     /*margin-top: 0px;*/
+    z-index: 0;
     width: 150px;
     position: absolute;
     height: 60px;

@@ -88,7 +88,8 @@
                         {
                             @foreach (var item in time.Items)
                             {
-                                <div class="shedule-obj">
+                                <div class="shedule-obj" onmouseenter="z(event)" onmouseleave="zmin(event)">
+                                    <div class="hidden serch">@Html.DisplayFor(modelItem => item.StartTime)@Html.DisplayFor(modelItem => item.Duration)</div>
                                     <div class="hidden time">@Html.DisplayFor(modelItem => item.StartTime)</div>
                                     <div class="hidden dur">@Html.DisplayFor(modelItem => item.Duration)</div>
                                     <div class="hidden type">@Html.DisplayFor(modelItem => item.Type)</div>
