@@ -80,12 +80,6 @@ img {
     border: 2px solid #DA5151;
 }
 
-.special {
-    background-color: #868686;
-    border: 2px solid #575757;
-    height: 60px;
-}
-
 .shedule-obj {
     /*margin-top: 0px;*/
     z-index: 0;
