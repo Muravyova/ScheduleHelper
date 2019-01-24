@@ -13,7 +13,7 @@ namespace ScheduleHelper.Models.DbModels
         public String Name { get; set; }
 
         [Required(ErrorMessage="Поле должно быть заполнено")]
-       [RegularExpression(@"^(\d{11})$", ErrorMessage = "Некорректный номер")]
+       [RegularExpression(@"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$", ErrorMessage = "Некорректный номер")]
         public String PhoneNumber { get; set; }
 
         [Required(ErrorMessage="Поле должно быть заполнено")]
