@@ -80,6 +80,8 @@ namespace ScheduleHelper.Controllers
             }
             ViewData["ScheduleItemId"] = new SelectList(_context.ScheduleItems, "Id", "StartTime", history.ScheduleItemId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", history.StudentId);
+            ViewData["ScheduleItem"] = new SelectList(_context.ScheduleItems, "Id", "Title");
+            ViewData["Student"] = new SelectList(_context.Students, "Id", "Name");
             return View(history);
         }
 
