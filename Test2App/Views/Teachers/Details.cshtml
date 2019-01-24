@@ -5,36 +5,39 @@
 }
 
 <div>
-    <h4>Преподаватель</h4>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Редактировать</a>
-        <br />
-        <br />
+    
+    <div style="top: 20px; position: relative;">
+        <h4 style="float:left;">@Model.Name</h4>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default" style="float:right;">Редактировать</a>
+        
         @if (Model.ScheduleItems.Count != 0)
         {
-            <h6>Нельзя удалить преподавателя, пока имеются занятия связанные с ним</h6>
+            <h6 style="float:right; margin-right: 8px;">Нельзя удалить преподавателя, пока имеются занятия связанные с ним</h6>
         }
         else
         {
-            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-default">Удалить</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-default" style="float:right;">Удалить</a>
         }
     </div>
+    <br /><br />
     <hr />
+
     <dl class="dl-horizontal">
-        <dt>Контакты:</dt>
+        <dt style="font-size: 16px;">Контакты</dt><dd></dd>
+        <dt style="color: #5A5A5A;">Телефон:</dt>
         <dd>
-            Телефон:
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
+        <dt style="color: #5A5A5A;">Email:</dt>
         <dd>
-            Email:
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt>
+        <dt style="margin-top: 8px;">
             Комментарий
         </dt>
+        
         <dd>
-            @Html.DisplayFor(model => model.Comment)
+            <div style="width: 300px; border: 1px solid #cbcbcb; border-radius: 5px; padding: 4px; margin-top: 8px;">@Html.DisplayFor(model => model.Comment)</div>
         </dd>
     </dl>
 </div>
@@ -42,8 +45,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th style="width: 30px;"></th>
             <th>
-                Язык
+                Группа
             </th>
             <th>
                 Уровень
@@ -51,6 +55,9 @@
             <th>
                 Вид занятий
             </th>
+            <th>Начало занятий</th>
+            <th>Конец занятий</th>
+            <th>Время начала</th>
         </tr>
     </thead>
     <tbody>
@@ -58,13 +65,25 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Language.Name)
+                    <a asp-area="" asp-controller="ScheduleItems" asp-action="Delete" asp-route-id="@item.Id" style="color: #930000; font-weight: bold;">X</a>
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Language.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Language.Description)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td style="text-align: center;">
+                    @Html.DisplayFor(modelItem => item.StartDate.Day).@Html.DisplayFor(modelItem => item.StartDate.Month).@Html.DisplayFor(modelItem => item.StartDate.Year)
+                </td>
+                <td style="text-align: center;">
+                    @Html.DisplayFor(modelItem => item.EndDate.Day).@Html.DisplayFor(modelItem => item.EndDate.Month).@Html.DisplayFor(modelItem => item.EndDate.Year)
+                </td>
+                <td style="text-align: center;">
+                    @Html.DisplayFor(modelItem => item.StartTime)
                 </td>
             </tr>
         }

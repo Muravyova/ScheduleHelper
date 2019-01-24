@@ -146,7 +146,7 @@ namespace ScheduleHelper.Controllers
 
             return weekItemsTime;
         }
-
+        
         // GET: ScheduleItems/Details/5
         public async Task<IActionResult> Details(Guid? id, String cw)
         {

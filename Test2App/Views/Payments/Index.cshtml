@@ -27,9 +27,9 @@
             <th>
                 Количество занятий
             </th>
-            <th>
+            @*<th>
                 Возврат?
-            </th>
+            </th>*@
             <th>
                 Сумма возврата
             </th>
@@ -55,9 +55,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Count)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Refund)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.RefundPay)
                 </td>
@@ -68,9 +68,9 @@
                     @Html.DisplayFor(modelItem => item.Student.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">X</a>
                 </td>
             </tr>
         }
