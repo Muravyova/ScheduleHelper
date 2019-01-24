@@ -212,3 +212,12 @@ a > .name {
 #shedule_body {
     min-width: 616px;
 }
+
+#filter {
+    visibility: hidden;
+}
+
+
+#btn-filter {
+    visibility:hidden;
+}
