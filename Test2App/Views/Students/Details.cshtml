@@ -4,34 +4,40 @@
     ViewData["Title"] = "Детали";
 }
 
-<div>
-    <br />
+<a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-default" style="margin-top:20px; float: left; display: inline-block;">Назад</a>
+<h4 style="font-weight: normal; font-size: 20px; margin-top:24px; margin-left: 8px; display: inline-block;">@Model.Name</h4>
+<div style="float: right; top: 8px; position: relative;">
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="margin-top:10px">Удалить</a>
     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default" style="margin-top:10px">Редактировать</a> 
     <a asp-controller="Payments" asp-action="Create" asp-route-s="@Model.Id" class="btn btn-default" style="margin-top:10px">Оплатить</a>
 </div>
 
 <hr />
 
-<h2>@Html.DisplayFor(model => model.Name)</h2>
-
 <div>
     <dl class="dl-horizontal">
-        <dt>Контакты:</dt>
+        <dt style="font-size: 16px;">Контакты</dt>
+        <dd></dd>
+        <dt style="color: #5A5A5A;">Телефон:</dt>
         <dd>
-            Телефон:
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
+        <dt style="color: #5A5A5A;">Email:</dt>
         <dd>
-            Email:
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            Комментарий:
+            Кол-во платежей
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Comment)
+            @Html.DisplayFor(model => model.Payments.Count)
+        </dd>
+        <dt style="margin-top: 8px;">
+            Комментарий
+        </dt>
+        <dd>
+            <div style="width: 300px; border: 1px solid #cbcbcb; border-radius: 5px; padding: 4px; margin-top: 8px;">@Html.DisplayFor(model => model.Comment)</div>
         </dd>
     </dl>
 </div>
 
-<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="margin-top:10px">Удалить</a>

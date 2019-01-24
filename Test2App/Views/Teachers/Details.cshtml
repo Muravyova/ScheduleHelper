@@ -5,14 +5,14 @@
 }
 
 <div>
-    
+    <a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-default" style=" float: left; display: inline-block; top: 20px; position: relative;">Назад</a>
+    <h4 style="float:left; margin-left: 8px; top: 15px; position: relative;">@Model.Name</h4>
     <div style="top: 20px; position: relative;">
-        <h4 style="float:left;">@Model.Name</h4>
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default" style="float:right;">Редактировать</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default" style="float:right; margin-left: 4px;">Редактировать</a>
         
         @if (Model.ScheduleItems.Count != 0)
         {
-            <h6 style="float:right; margin-right: 8px;">Нельзя удалить преподавателя, пока имеются занятия связанные с ним</h6>
+            <h6 style="float:right; ">Нельзя удалить преподавателя, пока имеются занятия связанные с ним</h6>
         }
         else
         {
