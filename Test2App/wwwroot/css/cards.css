@@ -44,6 +44,10 @@
         display: initial;
     }
 
+    .card:hover .card__btn--dlt-black {
+        display: initial;
+    }
+
 .card__content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -60,10 +64,10 @@
     overflow: hidden;
 }
 
-.card__content:hover{
-    text-decoration:none;
-    color: black;
-}
+    .card__content:hover {
+        text-decoration: none;
+        color: black;
+    }
 
 .card__btn--dlt {
     display: none;
@@ -84,6 +88,28 @@
 
     .card__btn--dlt:hover {
         color: white;
+        text-decoration: none;
+    }
+
+.card__btn--dlt-black {
+    display: none;
+    position: absolute;
+    right: 16px;
+    top: 15px;
+    border-radius: 50%;
+    border: 2px solid;
+    width: 30px;
+    height: 30px;
+    line-height: 1.7;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.60);
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s;
+}
+
+    .card__btn--dlt-black:hover {
+        color: black;
         text-decoration: none;
     }
 

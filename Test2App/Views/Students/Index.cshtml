@@ -28,7 +28,7 @@
             <li class="cards__item">
                 <div class="card">
                     <div class="card__content">
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="card__btn--dlt">×</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="card__btn--dlt-black">×</a>
                         <a asp-action="Details" asp-route-id="@item.Id" class="card__content">
                             <div class="card__title">@Html.DisplayFor(modelItem => item.Name)</div>
                             <div class="card__comment">@Html.DisplayFor(modelItem => item.Comment)</div>
