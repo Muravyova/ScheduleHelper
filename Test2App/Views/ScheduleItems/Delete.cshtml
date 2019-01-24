@@ -11,13 +11,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Начало занятий:
+            Начало повторения:
         </dt>
         <dd>
             @Html.DisplayFor(modelItem => Model.StartDate.Day).@Html.DisplayFor(modelItem => Model.StartDate.Month).@Html.DisplayFor(modelItem => Model.StartDate.Year)
         </dd>
         <dt>
-            Конец занятий:
+            Конец повторения:
         </dt>
         <dd>
             @Html.DisplayFor(modelItem => Model.EndDate.Day).@Html.DisplayFor(modelItem => Model.EndDate.Month).@Html.DisplayFor(modelItem => Model.EndDate.Year)
@@ -81,7 +81,7 @@ break;
             @Html.DisplayFor(model => model.Duration)
         </dd>
         <dt>
-            Язык:
+            Группа:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Language.Name)
