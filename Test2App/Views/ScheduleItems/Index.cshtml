@@ -30,8 +30,8 @@
                             </div>
                         </td>
                         <td id="op_leg">
-                                <input asp-for="Time" type="date" class="form-control" style="width: 150px; display: inline-block;" />
-                                <span class="btn btn-default" style="display: inline-block;">Фильтровать</span>
+                                <input asp-for="Time" type="date" class="form-control" style="width: 150px; display: inline-block; visibility:hidden" />
+                                <span class="btn btn-default" style="display: inline-block; visibility:hidden;">Фильтровать</span>
                                 <a asp-action="Create" class="btn btn-default">Добавить</a>
                             <label>
                                 @DateTime.Now.StartOfWeek(DayOfWeek.Monday).Day.@DateTime.Now.StartOfWeek(DayOfWeek.Monday).Month.@DateTime.Now.StartOfWeek(DayOfWeek.Monday).Year
